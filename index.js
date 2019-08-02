@@ -1,12 +1,13 @@
 var mongoose = require('mongoose');
-var express = require('express');
+var reqExpress = require('express');
 var cors = require('cors');
 var config = require('./config');
-var userPath = require('');
+var userPath = require('./router/userPath.js');
+var express = reqExpress();
 
 
 express.use(cors({origin: true}));
-express.use(express.json());
+express.use(reqExpress.json());
 express.use('/user', userPath);
 
 express.use((err, req, res, next) => {
